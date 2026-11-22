@@ -1,0 +1,37 @@
+# Android / Gradle
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+app/build/
+
+# 构建产物（本地生成，不提交；发布用 GitHub Release 附件）
+*.apk
+*.aab
+*.keystore
+*.jks
+dist/
+build-local/
+
+# 本机工具链与缓存（仅用于离线构建，不入库）
+tools/_downloads/
+tools/sdk/
+tools/jdk/
+tools/gradle-8.9/
+tools/gradle-home/
+tools/android-home/
+tools/tmp/
+tools/tmp2/
+tools/pysite/
+tools/npm/
+tools/npm-cache/
+*.log
+
+# 明文签名配置
+keystore.properties

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HTML 预览器</string>
+    <string name="open_with_browser">选择浏览器打开</string>
+    <string name="saved_ok">已保存到「下载」</string>
+    <string name="saved_fail">保存失败</string>
+    <string name="share_title">分享 HTML 文件</string>
+    <string name="empty_clipboard">剪贴板里没有文本</string>
+</resources>

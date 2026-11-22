@@ -1,0 +1,20 @@
+# 统一行尾，避免在 Windows 上克隆后 gradlew（shell 脚本）变成 CRLF 导致 CI 里执行失败
+* text=auto
+
+*.java text
+*.gradle text
+*.properties text
+*.xml text
+*.md text
+*.yml text
+*.yaml text
+*.html text
+*.js text
+*.json text
+
+*.bat text eol=crlf
+gradlew text eol=lf
+
+*.jar binary
+*.png binary
+*.apk binary

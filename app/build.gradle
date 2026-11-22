@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.dsh.htmlviewer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.dsh.htmlviewer'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ''
+            versionNameSuffix '-debug'
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 如需正式签名，在 CI 中传入 KEYSTORE_* 环境变量即可（见 README）。
+            if (System.getenv('KEYSTORE_PATH')) {
+                signingConfig signingConfigs.create('release') {
+                    storeFile file(System.getenv('KEYSTORE_PATH'))
+                    storePassword System.getenv('KEYSTORE_PASSWORD')
+                    keyAlias System.getenv('KEY_ALIAS')
+                    keyPassword System.getenv('KEY_PASSWORD')
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        resources.excludes += ['META-INF/*.kotlin_module']
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    // 刻意不引入任何第三方依赖：整个 App 只用 Android Framework API，构建快、体积小。
+}
